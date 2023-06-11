@@ -1,0 +1,74 @@
+<!-- <section id="hero">
+	<div class="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+	
+		<div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+			<h1 class="max-w-md text-2xl font-bold text-center leading-6 md:text-5xl md:text-left">
+				A whole world of flowers at your finger tips
+			</h1>
+			<p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
+				Choose the perfect gift for yourself or loved one
+			</p>
+
+			<div class="flex justify-center gap-4 md:justify-start">
+				<a href="#" class=" p-3 px-6 pt-2 text-white bg-gold rounded-full baseline hover:bg-lightGold font-bold font-bold hover:text-white">Buy Now</a>
+				<a href="#" class=" p-3 px-6 pt-2  baseline hover:text-gold font-bold"><i class="fa-regular fa-circle-play"></i> &nbsp; Watch Video</a>
+			</div>
+		</div>
+		<div class="self-stretch grid gap-4 grid-cols-2 md:w-1/2 ">
+			<div class="p-4 row-span-2 rounded-md card-1 card-wrapper cursor-pointer">
+			</div>
+			<div class="p-4 row-span-1 rounded-md card-2 card-wrapper cursor-pointer"></div>
+			<div class="p-4 row-span-1 rounded-md card-3 card-wrapper cursor-pointer"></div>
+		</div>
+	</div>
+</section> -->
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="30"
+  [loop]="true"
+  [navigation]="true"
+  [pagination]="{
+    clickable: true
+  }"
+  class="mySwiper"
+  [autoplay]="{
+    delay: 10000,
+    disableOnInteraction: false
+  }"
+>
+  <ng-template swiperSlide *ngFor="let item of carouselContent" class="">
+    <section 
+      class="cover relative overflow-hidden  flex items-center h-96 bg-amber-50"
+    >
+      <!-- <div class="h-full absolute top-0 left-0 z-0 w-full">
+        <img *ngIf="item?.image" [src]="item?.background"  alt="" class="w-full h-full object-cover opacity-20">
+     
+
+        
+      </div> -->
+
+      <div id="hero" class="lg:w-3/4 xl:w-2/4 relative z-10 h-full">
+        <div class="h-full flex flex-col items-start justify-center p-10">
+          <h1
+            class="text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight"
+          >
+            {{item?.heading}}
+          </h1>
+
+          <p class="mt-4">{{item?.paragraph}}</p>
+
+          <a
+            href="/contact"
+            class="px-8 py-4 bg-white text-red-500 rounded border border-red-500 inline-block mt-8 font-semibold"
+            >{{item?.cta}}.</a
+          >
+        </div>
+      </div>
+      <div id="hero-image" class="lg:w-1/4 xl:w-2/4 flex items-center justify-center">
+        <div class="card rounded h-56 w-56 bg-amber-50 shadow">
+          <img [src]="item?.image" class="h-full w-full object-cover overflow-hidden" alt="">
+        </div>
+      </div>
+    </section>
+  </ng-template>
+</swiper>
